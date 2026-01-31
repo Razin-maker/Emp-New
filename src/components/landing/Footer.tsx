@@ -22,9 +22,6 @@ const Footer = () => {
             <p className="text-sm text-muted-foreground">
               Employee Max Portal
             </p>
-            <p className="text-sm text-muted-foreground">
-              Built for Bangladeshi businesses
-            </p>
           </div>
           
           {/* Links */}
