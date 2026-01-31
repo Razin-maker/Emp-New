@@ -17,5 +17,11 @@ export default defineConfig(({ mode }) => ({
     alias: {
       "@": path.resolve(__dirname, "./src"),
     },
+    // Prevent duplicate React instances (fixes: Cannot read properties of null (reading 'useEffect'))
+    dedupe: ["react", "react-dom", "react/jsx-runtime"],
+  },
+  // Ensure React Query is properly pre-bundled by Vite
+  optimizeDeps: {
+    include: ["@tanstack/react-query"],
   },
 }));
