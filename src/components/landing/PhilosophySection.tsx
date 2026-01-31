@@ -1,3 +1,7 @@
+import { Link } from "react-router-dom";
+import { Button } from "@/components/ui/button";
+import { ArrowRight } from "lucide-react";
+
 const philosophies = [
   "If it's not written, it doesn't exist.",
   "If no one owns it, no one will do it.",
@@ -21,12 +25,19 @@ const PhilosophySection = () => {
             ))}
           </div>
           
-          <div className="pt-8 border-t border-border">
+          <div className="pt-8 border-t border-border mb-8">
             <p className="text-muted-foreground">This is not about pressure.</p>
             <p className="text-xl font-medium text-foreground mt-2">
               This is about <span className="text-primary">clarity</span>.
             </p>
           </div>
+
+          <Button variant="hero" size="lg" asChild>
+            <Link to="/why-emp-exists" className="gap-2">
+              Why EMP Exists
+              <ArrowRight className="w-4 h-4" />
+            </Link>
+          </Button>
         </div>
       </div>
     </section>
