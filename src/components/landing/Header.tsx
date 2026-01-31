@@ -12,6 +12,9 @@ const Header = () => {
         </div>
         
         <nav className="hidden md:flex items-center gap-8">
+          <a href="/why-emp-exists" className="text-muted-foreground hover:text-foreground transition-colors text-sm">
+            Why EMP Exists
+          </a>
           <a href="#problem" className="text-muted-foreground hover:text-foreground transition-colors text-sm">
             Problem
           </a>
