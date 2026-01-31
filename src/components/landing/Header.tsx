@@ -22,6 +22,9 @@ const Header = () => {
           <a href="#problem" className="text-muted-foreground hover:text-foreground transition-colors text-sm">
             Problem
           </a>
+          <Link to="/solution" className="text-muted-foreground hover:text-foreground transition-colors text-sm">
+            Solution
+          </Link>
           <a href="#how-it-works" className="text-muted-foreground hover:text-foreground transition-colors text-sm">
             How it Works
           </a>
@@ -64,6 +67,13 @@ const Header = () => {
             >
               Problem
             </a>
+            <Link 
+              to="/solution" 
+              className="text-muted-foreground hover:text-foreground transition-colors text-sm py-2"
+              onClick={() => setMobileMenuOpen(false)}
+            >
+              Solution
+            </Link>
             <a 
               href="#how-it-works" 
               className="text-muted-foreground hover:text-foreground transition-colors text-sm py-2"
