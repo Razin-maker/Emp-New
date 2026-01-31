@@ -1,7 +1,7 @@
 import { Link } from "react-router-dom";
 import { motion } from "framer-motion";
 import { Button } from "@/components/ui/button";
-import { ArrowLeft, Users, Clock, Calendar, DollarSign, BarChart3, CheckSquare, Target, TrendingUp, GraduationCap, RefreshCw, Bell, FileText, Award, ClipboardList, Briefcase, AlertTriangle, LogOut, Package, Server, Users2, Zap, Shield, Smartphone, Bot, Globe, Languages, Link2, Monitor, MessageSquare, Paperclip, Play } from "lucide-react";
+import { ArrowLeft, Users, Clock, Calendar, DollarSign, BarChart3, CheckSquare, Target, TrendingUp, GraduationCap, RefreshCw, Bell, FileText, Award, ClipboardList, Briefcase, AlertTriangle, LogOut, Package, Server, Users2, Zap, Shield, Smartphone, Bot, Globe, Languages, Link2, Monitor, MessageSquare, Paperclip, Play, Github, Sparkles, Heart, MessageCircle } from "lucide-react";
 import Header from "@/components/landing/Header";
 import Footer from "@/components/landing/Footer";
 
@@ -34,7 +34,8 @@ const coreModules = [
   {
     icon: CheckSquare,
     title: "Task & Project Tracking",
-    description: "Powerful issue tracking system with milestones, priorities, assignments, sub-tasks, and real-time collaboration. Track progress from inception to completion."
+    description: "Powerful issue tracking system with milestones, priorities, assignments, sub-tasks, and real-time collaboration. Track progress from inception to completion.",
+    featured: true
   },
   {
     icon: Target,
@@ -135,7 +136,8 @@ const keyHighlights = [
   {
     icon: Bot,
     title: "Automation & AI",
-    description: "Smart task assignment, scheduled reminders, auto-calculations, and intelligent escalation."
+    description: "Smart task assignment, scheduled reminders, auto-calculations, and intelligent escalation.",
+    upcoming: true
   },
   {
     icon: Globe,
@@ -163,9 +165,9 @@ const userExperience = [
 ];
 
 const benefits = [
-  "Reduce HR Administrative Time by 70%",
+  "Reduce HR Administrative Time Significantly",
   "Eliminate Payroll Errors with Automation",
-  "Improve Employee Productivity by 40%",
+  "Improve Employee Productivity & Accountability",
   "Real-Time Visibility into Workforce Metrics",
   "Ensure Compliance with Labor Laws",
   "Streamline Approval Workflows",
@@ -208,21 +210,25 @@ const Solution = () => {
               className="text-center max-w-4xl mx-auto"
             >
               <span className="inline-block px-4 py-2 rounded-full bg-primary/10 text-primary text-sm font-medium mb-6">
-                Complete Enterprise Solution
+                Open Source Solution
               </span>
               <h1 className="text-4xl md:text-5xl lg:text-6xl font-bold text-foreground mb-6">
                 SOHUB Employee Management System
               </h1>
-              <p className="text-xl text-muted-foreground mb-8">
-                Complete Enterprise HR & Workforce Management Solution
+              <p className="text-xl text-muted-foreground mb-4">
+                EMP does not try to change people.
+              </p>
+              <p className="text-xl font-medium text-foreground mb-8">
+                EMP changes the system people work in.
               </p>
               <div className="flex flex-col sm:flex-row items-center justify-center gap-4">
                 <Button variant="hero" size="xl" className="gap-2">
                   <Play className="w-4 h-4" />
-                  Request Demo
+                  Try The Demo
                 </Button>
-                <Button variant="heroOutline" size="xl">
-                  Contact Sales
+                <Button variant="heroOutline" size="xl" className="gap-2">
+                  <Github className="w-4 h-4" />
+                  View Open Source
                 </Button>
               </div>
             </motion.div>
@@ -254,9 +260,20 @@ const Solution = () => {
                   whileInView={{ opacity: 1, y: 0 }}
                   viewport={{ once: true }}
                   transition={{ delay: index * 0.1 }}
-                  className="group p-6 rounded-2xl bg-card border border-border hover:border-primary/30 hover:shadow-lg transition-all duration-300"
+                  className={`group p-6 rounded-2xl bg-card border hover:shadow-lg transition-all duration-300 ${
+                    (module as any).featured 
+                      ? 'border-primary ring-2 ring-primary/20 relative' 
+                      : 'border-border hover:border-primary/30'
+                  }`}
                 >
-                  <div className="w-12 h-12 rounded-xl bg-primary/10 flex items-center justify-center mb-4 group-hover:bg-primary/20 transition-colors">
+                  {(module as any).featured && (
+                    <span className="absolute -top-3 left-4 px-3 py-1 bg-primary text-primary-foreground text-xs font-medium rounded-full">
+                      Core Feature
+                    </span>
+                  )}
+                  <div className={`w-12 h-12 rounded-xl flex items-center justify-center mb-4 transition-colors ${
+                    (module as any).featured ? 'bg-primary/20' : 'bg-primary/10 group-hover:bg-primary/20'
+                  }`}>
                     <module.icon className="w-6 h-6 text-primary" />
                   </div>
                   <h3 className="text-lg font-semibold text-foreground mb-2">{module.title}</h3>
@@ -328,8 +345,16 @@ const Solution = () => {
                   whileInView={{ opacity: 1, y: 0 }}
                   viewport={{ once: true }}
                   transition={{ delay: index * 0.1 }}
-                  className="text-center p-6 rounded-2xl bg-gradient-to-b from-primary/5 to-transparent border border-border"
+                  className={`text-center p-6 rounded-2xl bg-gradient-to-b from-primary/5 to-transparent border relative ${
+                    (highlight as any).upcoming ? 'border-dashed border-primary/50' : 'border-border'
+                  }`}
                 >
+                  {(highlight as any).upcoming && (
+                    <span className="absolute -top-3 left-1/2 -translate-x-1/2 px-3 py-1 bg-accent text-accent-foreground text-xs font-medium rounded-full flex items-center gap-1">
+                      <Sparkles className="w-3 h-3" />
+                      Coming Soon
+                    </span>
+                  )}
                   <div className="w-14 h-14 rounded-full bg-primary/10 flex items-center justify-center mx-auto mb-4">
                     <highlight.icon className="w-7 h-7 text-primary" />
                   </div>
@@ -481,20 +506,41 @@ const Solution = () => {
               className="text-center max-w-3xl mx-auto"
             >
               <h2 className="text-3xl md:text-4xl font-semibold text-foreground mb-4">
-                Get Started Today
+                Join the Open Source Movement
               </h2>
-              <p className="text-lg text-muted-foreground mb-8">
-                Transform your HR operations with SOHUB Employee Management System. Experience the power of complete workforce automation, real-time insights, and seamless collaboration.
+              <p className="text-lg text-muted-foreground mb-4">
+                EMP is open source because transparency, flexibility, and trust matter. 
               </p>
-              <div className="flex flex-col sm:flex-row items-center justify-center gap-4">
+              <p className="text-muted-foreground mb-8">
+                We invite you to explore, contribute, provide feedback, or simply join the conversation. 
+                Together, we can build better systems for Bangladeshi businesses.
+              </p>
+              <div className="flex flex-col sm:flex-row items-center justify-center gap-4 mb-8">
                 <Button variant="hero" size="xl" className="gap-2">
                   <Play className="w-4 h-4" />
-                  Request Demo
+                  Try The Demo
                 </Button>
-                <Button variant="heroOutline" size="xl">
-                  Start Free Trial
+                <Button variant="heroOutline" size="xl" className="gap-2">
+                  <Github className="w-4 h-4" />
+                  View Open Source
                 </Button>
               </div>
+              
+              <div className="flex flex-wrap items-center justify-center gap-4 text-sm text-muted-foreground">
+                <span className="flex items-center gap-2">
+                  <MessageCircle className="w-4 h-4 text-primary" />
+                  Share Feedback
+                </span>
+                <span className="flex items-center gap-2">
+                  <Heart className="w-4 h-4 text-primary" />
+                  Contribute
+                </span>
+                <span className="flex items-center gap-2">
+                  <Github className="w-4 h-4 text-primary" />
+                  Star on GitHub
+                </span>
+              </div>
+              
               <p className="text-sm text-muted-foreground mt-8 italic">
                 SOHUB EMS - Empowering Organizations, Enabling People
               </p>
