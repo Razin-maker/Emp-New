@@ -19,7 +19,7 @@ const HeroSection = () => {
         {/* Trust badge */}
         <div className="inline-flex items-center gap-2 px-4 py-2 rounded-full bg-secondary text-secondary-foreground text-sm mb-8">
           <span className="w-2 h-2 rounded-full bg-primary"></span>
-          Open Source • Built for Bangladesh
+          Employee Max Portal
         </div>
         
         {/* Main headline */}
