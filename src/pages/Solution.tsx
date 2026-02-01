@@ -180,7 +180,7 @@ const Solution = () => {
     <div className="min-h-screen bg-background">
       <Header />
       
-      <main className="pt-16 pb-16">
+      <main className="pt-0 pb-16">
         {/* Hero Section */}
         <section className="section-padding pt-20 bg-gradient-to-b from-primary/5 to-background">
           <div className="container-calm">
@@ -194,7 +194,7 @@ const Solution = () => {
                 Open Source Solution
               </span>
               <h1 className="text-4xl md:text-5xl lg:text-6xl font-bold text-foreground mb-6">
-                SOHUB's Employee Max Portal
+                SOHUB Employee Management System
               </h1>
               <p className="text-xl text-muted-foreground mb-4">
                 EMP does not try to change people.
