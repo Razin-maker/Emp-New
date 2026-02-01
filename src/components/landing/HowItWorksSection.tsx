@@ -132,7 +132,7 @@ const HowItWorksSection = () => {
           <p className="text-2xl font-semibold text-foreground mb-2">
             That's it.
           </p>
-          <p className="text-lg text-muted-foreground">
+          <p className="text-sm md:text-lg text-muted-foreground">
             No complexity. No noise. Just <span className="text-primary font-medium">clarity</span>.
           </p>
         </div>

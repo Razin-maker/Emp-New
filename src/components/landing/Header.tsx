@@ -6,12 +6,23 @@ import { useEffect } from "react";
 
 const Header = () => {
   const [mobileMenuOpen, setMobileMenuOpen] = useState(false);
+  const [isScrolled, setIsScrolled] = useState(false);
   const location = useLocation();
   const navigate = useNavigate();
 
   useEffect(() => {
     window.scrollTo(0, 0);
   }, [location.pathname]);
+
+  useEffect(() => {
+    const handleScroll = () => {
+      if (window.innerWidth >= 768) {
+        setIsScrolled(window.scrollY > 10);
+      }
+    };
+    window.addEventListener('scroll', handleScroll);
+    return () => window.removeEventListener('scroll', handleScroll);
+  }, []);
 
   const handleNavClick = (e: React.MouseEvent<HTMLAnchorElement>, sectionId: string) => {
     e.preventDefault();
@@ -27,22 +38,27 @@ const Header = () => {
   };
 
   return (
-    <>
+    <div className="fixed top-0 left-0 right-0 z-50 transition-all duration-300">
       {/* Top bar */}
-      <div className="bg-secondary/50 border-b border-border/50">
+      <div className={`bg-secondary/50 border-b border-border/50 transition-all duration-300 overflow-hidden ${
+        isScrolled ? 'max-h-0 opacity-0' : 'max-h-20 opacity-100'
+      }`}>
         <div className="container-calm py-2">
-          <p className="text-xs text-center text-muted-foreground">
-            Solution Hub Technologies Owned & Operated
-          </p>
+          <a href="https://sohub.com.bd/" target="_blank" rel="noopener noreferrer" className="flex items-center gap-2 ml-8">
+            <img src="/ace41ae7-2ae1-4476-85cf-1d1637a02cb0.png" alt="Solution Hub" className="h-6" />
+            <p className="text-xs text-muted-foreground">
+              Solution Hub Technologies Owned & Operated
+            </p>
+          </a>
         </div>
       </div>
       
       {/* Main header */}
-      <header className="fixed top-0 left-0 right-0 z-50 bg-background/80 backdrop-blur-md border-b border-border/50">
+      <header className="bg-background/80 backdrop-blur-md border-b border-border/50">
       <div className="container-calm flex items-center justify-between h-12">
         {/* Logo - clickable to home */}
         <Link to="/" className="flex items-center gap-2">
-          <img src="/Untitled design (8).png" alt="EMP Logo" className="h-20" />
+          <img src="/Untitled design (8).png" alt="EMP Logo" className="h-24" />
         </Link>
         
         {/* Desktop Navigation */}
@@ -155,6 +171,7 @@ const Header = () => {
         </div>
       )}
     </header>
+    </div>
   );
 };
 

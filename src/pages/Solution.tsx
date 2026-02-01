@@ -117,9 +117,9 @@ const keyHighlights = [
     description: "RBAC, encryption, CSRF protection, session management, and complete audit trails."
   },
   {
-    icon: Smartphone,
-    title: "Mobile Integration",
-    description: "Full-featured mobile API for iOS and Android with real-time notifications."
+    icon: Award,
+    title: "Champion Badge",
+    description: "Reward and recognize employees who perform well with achievement badges and recognition."
   },
   {
     icon: Bot,
@@ -129,18 +129,21 @@ const keyHighlights = [
   },
   {
     icon: Globe,
-    title: "Multi-Branch Support",
-    description: "Centralized control with branch-specific configurations and cross-branch reporting."
+    title: "Multi-Business Support",
+    description: "Centralized control with business-specific configurations and cross-business reporting.",
+    upcoming: true
   },
   {
-    icon: Languages,
-    title: "Multi-Language & RTL",
-    description: "Support for multiple languages with RTL capability for global workforce."
+    icon: Smartphone,
+    title: "Mobile Integration",
+    description: "Full-featured mobile API for iOS and Android with real-time notifications.",
+    upcoming: true
   },
   {
     icon: Link2,
     title: "Third-Party Integrations",
-    description: "Telegram, Firebase, SMS gateways, email services, and payment gateways."
+    description: "Telegram, Firebase, SMS gateways, email services, and payment gateways.",
+    upcoming: true
   }
 ];
 
@@ -165,13 +168,11 @@ const benefits = [
 
 const perfectFor = [
   "Small to Medium Enterprises (SMEs)",
-  "Large Corporations with Multiple Branches",
+  "Large Corporations with Multiple Businesses",
   "Remote and Hybrid Teams",
   "Project-Based Organizations",
   "Service Industries",
-  "Manufacturing Units",
-  "IT Companies",
-  "Educational Institutions"
+  "IT Companies"
 ];
 
 const Solution = () => {
@@ -181,7 +182,7 @@ const Solution = () => {
       
       <main className="pt-16 pb-16">
         {/* Hero Section */}
-        <section className="section-padding pt-10 bg-gradient-to-b from-primary/5 to-background">
+        <section className="section-padding pt-20 bg-gradient-to-b from-primary/5 to-background">
           <div className="container-calm">
             <motion.div
               initial={{ opacity: 0, y: 20 }}
@@ -193,7 +194,7 @@ const Solution = () => {
                 Open Source Solution
               </span>
               <h1 className="text-4xl md:text-5xl lg:text-6xl font-bold text-foreground mb-6">
-                SOHUB Employee Management System
+                SOHUB's Employee Max Portal
               </h1>
               <p className="text-xl text-muted-foreground mb-4">
                 EMP does not try to change people.
@@ -530,7 +531,7 @@ const Solution = () => {
               </div>
               
               <p className="text-sm text-muted-foreground mt-8 italic">
-                SOHUB EMS - Empowering Organizations, Enabling People
+                SOHUB EMP - Empowering Organizations, Enabling People
               </p>
             </motion.div>
           </div>
