@@ -5,7 +5,7 @@ import { motion } from "framer-motion";
 
 const HeroSection = () => {
   return (
-    <AuroraBackground className="!h-auto !min-h-0 pt-32 pb-20 md:pt-40 md:pb-28 !bg-background">
+    <AuroraBackground className="!h-auto !min-h-0 pt-18 pb-20 md:pt-30 md:pb-28 !bg-background">
       <motion.div
         initial={{ opacity: 0, y: 40 }}
         animate={{ opacity: 1, y: 0 }}

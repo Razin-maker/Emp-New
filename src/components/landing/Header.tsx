@@ -7,6 +7,7 @@ import { useEffect } from "react";
 const Header = () => {
   const [mobileMenuOpen, setMobileMenuOpen] = useState(false);
   const [isScrolled, setIsScrolled] = useState(false);
+  const [activeSection, setActiveSection] = useState("");
   const location = useLocation();
   const navigate = useNavigate();
 
@@ -16,9 +17,18 @@ const Header = () => {
 
   useEffect(() => {
     const handleScroll = () => {
-      if (window.innerWidth >= 768) {
-        setIsScrolled(window.scrollY > 10);
-      }
+      setIsScrolled(window.scrollY > 10);
+      
+      const sections = ['problem', 'how-it-works', 'open-source'];
+      const current = sections.find(section => {
+        const element = document.getElementById(section);
+        if (element) {
+          const rect = element.getBoundingClientRect();
+          return rect.top <= 100 && rect.bottom >= 100;
+        }
+        return false;
+      });
+      if (current) setActiveSection(current);
     };
     window.addEventListener('scroll', handleScroll);
     return () => window.removeEventListener('scroll', handleScroll);
@@ -38,7 +48,7 @@ const Header = () => {
   };
 
   return (
-    <div className="fixed top-0 left-0 right-0 z-50 transition-all duration-300">
+    <div className="sticky top-0 left-0 right-0 z-50">
       {/* Top bar */}
       <div className={`bg-secondary/50 border-b border-border/50 transition-all duration-300 overflow-hidden ${
         isScrolled ? 'max-h-0 opacity-0' : 'max-h-20 opacity-100'
@@ -57,25 +67,35 @@ const Header = () => {
       <header className="bg-background/80 backdrop-blur-md border-b border-border/50">
       <div className="container-calm flex items-center justify-between h-12">
         {/* Logo - clickable to home */}
-        <Link to="/" className="flex items-center gap-2">
+        <Link to="/" className="flex items-center gap-2 relative top-1.5">
           <img src="/Untitled design (8).png" alt="EMP Logo" className="h-24" />
         </Link>
         
         {/* Desktop Navigation */}
         <nav className="hidden md:flex items-center gap-8">
-          <a href="#problem" onClick={(e) => handleNavClick(e, 'problem')} className="text-muted-foreground hover:text-foreground transition-colors text-xs">
+          <a href="#problem" onClick={(e) => handleNavClick(e, 'problem')} className={`transition-colors text-xs ${
+            activeSection === 'problem' ? 'text-primary font-medium' : 'text-muted-foreground hover:text-foreground'
+          }`}>
             Problem
           </a>
-          <Link to="/solution" className="text-muted-foreground hover:text-foreground transition-colors text-xs">
+          <Link to="/solution" className={`transition-colors text-xs ${
+            location.pathname === '/solution' ? 'text-primary font-medium' : 'text-muted-foreground hover:text-foreground'
+          }`}>
             Solution
           </Link>
-          <a href="#how-it-works" onClick={(e) => handleNavClick(e, 'how-it-works')} className="text-muted-foreground hover:text-foreground transition-colors text-xs">
+          <a href="#how-it-works" onClick={(e) => handleNavClick(e, 'how-it-works')} className={`transition-colors text-xs ${
+            activeSection === 'how-it-works' ? 'text-primary font-medium' : 'text-muted-foreground hover:text-foreground'
+          }`}>
             How it Works
           </a>
-          <Link to="/why-emp-exists" className="text-muted-foreground hover:text-foreground transition-colors text-xs">
+          <Link to="/why-emp-exists" className={`transition-colors text-xs ${
+            location.pathname === '/why-emp-exists' ? 'text-primary font-medium' : 'text-muted-foreground hover:text-foreground'
+          }`}>
             Why EMP Exists
           </Link>
-          <a href="#open-source" onClick={(e) => handleNavClick(e, 'open-source')} className="text-muted-foreground hover:text-foreground transition-colors text-xs">
+          <a href="#open-source" onClick={(e) => handleNavClick(e, 'open-source')} className={`transition-colors text-xs ${
+            activeSection === 'open-source' ? 'text-primary font-medium' : 'text-muted-foreground hover:text-foreground'
+          }`}>
             Open Source
           </a>
           <a href="https://www.facebook.com/groups/1381078433708350/?ref=share&mibextid=NSMWBT" target="_blank" rel="noopener noreferrer" className="text-muted-foreground hover:text-foreground transition-colors text-xs">
@@ -113,35 +133,45 @@ const Header = () => {
           <nav className="container-calm py-4 flex flex-col gap-4">
             <a 
               href="#problem" 
-              className="text-muted-foreground hover:text-foreground transition-colors text-sm py-2"
+              className={`transition-colors text-sm py-2 ${
+                activeSection === 'problem' ? 'text-primary font-medium' : 'text-muted-foreground hover:text-foreground'
+              }`}
               onClick={(e) => handleNavClick(e, 'problem')}
             >
               Problem
             </a>
             <Link 
               to="/solution" 
-              className="text-muted-foreground hover:text-foreground transition-colors text-sm py-2"
+              className={`transition-colors text-sm py-2 ${
+                location.pathname === '/solution' ? 'text-primary font-medium' : 'text-muted-foreground hover:text-foreground'
+              }`}
               onClick={() => setMobileMenuOpen(false)}
             >
               Solution
             </Link>
             <a 
               href="#how-it-works" 
-              className="text-muted-foreground hover:text-foreground transition-colors text-sm py-2"
+              className={`transition-colors text-sm py-2 ${
+                activeSection === 'how-it-works' ? 'text-primary font-medium' : 'text-muted-foreground hover:text-foreground'
+              }`}
               onClick={(e) => handleNavClick(e, 'how-it-works')}
             >
               How it Works
             </a>
             <Link 
               to="/why-emp-exists" 
-              className="text-muted-foreground hover:text-foreground transition-colors text-sm py-2"
+              className={`transition-colors text-sm py-2 ${
+                location.pathname === '/why-emp-exists' ? 'text-primary font-medium' : 'text-muted-foreground hover:text-foreground'
+              }`}
               onClick={() => setMobileMenuOpen(false)}
             >
               Why EMP Exists
             </Link>
             <a 
               href="#open-source" 
-              className="text-muted-foreground hover:text-foreground transition-colors text-sm py-2"
+              className={`transition-colors text-sm py-2 ${
+                activeSection === 'open-source' ? 'text-primary font-medium' : 'text-muted-foreground hover:text-foreground'
+              }`}
               onClick={(e) => handleNavClick(e, 'open-source')}
             >
               Open Source

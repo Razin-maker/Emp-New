@@ -5,7 +5,7 @@ const WhyEmpExists = () => {
   return (
     <div className="min-h-screen bg-background">
       <Header />
-      <main className="pt-24 pb-16">
+      <main className="pt-40 pb-16">
         <div className="container-calm max-w-3xl">
           {/* Hero */}
           <h1 className="text-4xl md:text-5xl font-bold text-foreground mb-12 text-center">
