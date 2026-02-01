@@ -42,12 +42,16 @@ const HeroSection = () => {
         
         {/* CTAs */}
         <div className="flex flex-col sm:flex-row items-center justify-center gap-4">
-          <Button variant="hero" size="xl" className="gap-2">
-            <Play className="w-4 h-4" />
-            Try the Demo
+          <Button variant="hero" size="xl" className="gap-2" asChild>
+            <a href="https://demo-emp.sohub.com.bd/" target="_blank" rel="noopener noreferrer">
+              <Play className="w-4 h-4" />
+              Try the Demo
+            </a>
           </Button>
-          <Button variant="heroOutline" size="xl">
-            View Open Source
+          <Button variant="heroOutline" size="xl" asChild>
+            <a href="https://github.com/Employee-Max-Portal/emp-open-source" target="_blank" rel="noopener noreferrer">
+              View Open Source
+            </a>
           </Button>
         </div>
         

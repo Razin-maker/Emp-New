@@ -9,7 +9,7 @@ const futureFeatures = [
 
 const FutureSection = () => {
   return (
-    <section className="section-padding bg-background">
+    <section id="future" className="section-padding bg-background">
       <div className="container-calm">
         <div className="max-w-3xl mx-auto text-center">
           <h2 className="text-3xl md:text-4xl font-semibold text-foreground mb-2">

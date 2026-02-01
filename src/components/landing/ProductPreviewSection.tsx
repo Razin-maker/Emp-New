@@ -43,7 +43,7 @@ const ProductPreviewSection = () => {
                   <div className="flex items-center gap-3 p-3 rounded-lg bg-red-50 border border-red-100">
                     <AlertTriangle className="w-5 h-5 text-red-500" />
                     <div className="flex-1">
-                      <p className="text-sm font-medium text-foreground">Review inventory list</p>
+                      <p className="text-sm font-medium text-foreground">Daily Machine Check</p>
                       <p className="text-xs text-muted-foreground">Karim • Overdue by 1 day</p>
                     </div>
                   </div>

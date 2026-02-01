@@ -73,7 +73,7 @@ const HowItWorksSection = () => {
                 </div>
 
                 {/* Highlight badge */}
-                <div className="inline-flex items-center gap-1.5 px-3 py-1 rounded-full bg-accent/10 text-accent text-xs font-medium mb-4">
+                <div className="inline-flex items-center gap-1.5 px-3 py-1 rounded-full bg-emp-yellow text-emp-dark text-xs font-medium mb-4">
                   <CheckCircle2 className="w-3 h-3" />
                   {step.highlight}
                 </div>

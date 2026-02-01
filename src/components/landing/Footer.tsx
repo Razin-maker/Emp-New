@@ -1,9 +1,9 @@
 const footerLinks = [
-  { label: "Demo", href: "#" },
+  { label: "Demo", href: "https://demo-emp.sohub.com.bd/" },
   { label: "Documentation", href: "#" },
-  { label: "GitHub", href: "#" },
-  { label: "Community", href: "#" },
-  { label: "Roadmap", href: "#" },
+  { label: "GitHub", href: "https://github.com/Employee-Max-Portal/emp-open-source" },
+  { label: "Join Us", href: "https://www.facebook.com/groups/1381078433708350/?ref=share&mibextid=NSMWBT" },
+  { label: "Roadmap", href: "#future" },
 ];
 
 const Footer = () => {
@@ -14,10 +14,7 @@ const Footer = () => {
           {/* Brand */}
           <div className="text-center md:text-left">
             <div className="flex items-center justify-center md:justify-start gap-2 mb-2">
-              <div className="w-8 h-8 rounded-lg bg-primary flex items-center justify-center">
-                <span className="text-primary-foreground font-bold text-sm">E</span>
-              </div>
-              <span className="font-semibold text-lg text-foreground">EMP</span>
+              <img src="/Untitled design (8).png" alt="EMP Logo" className="h-20" />
             </div>
             <p className="text-sm text-muted-foreground">
               Employee Max Portal
@@ -30,6 +27,8 @@ const Footer = () => {
               <a 
                 key={index} 
                 href={link.href}
+                target={link.href.startsWith('http') ? '_blank' : undefined}
+                rel={link.href.startsWith('http') ? 'noopener noreferrer' : undefined}
                 className="footer-link text-sm"
               >
                 {link.label}

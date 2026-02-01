@@ -14,12 +14,12 @@ const coreModules = [
   {
     icon: Clock,
     title: "Smart Attendance System",
-    description: "Advanced attendance tracking with QR code check-in/check-out, break management, late arrival tracking, and automated reporting. Real-time attendance monitoring across all departments."
+    description: "Advanced attendance tracking with check-in/check-out, break management, late arrival tracking, and automated reporting. Real-time attendance monitoring across all departments."
   },
   {
     icon: Calendar,
     title: "Leave Management",
-    description: "Streamlined leave application and approval workflow with automatic balance calculation, multi-year tracking, and instant notifications via email, SMS, and Telegram."
+    description: "Streamlined leave application and approval workflow with automatic balance calculation, multi-year tracking, and instant notifications via system alerts and email."
   },
   {
     icon: DollarSign,
@@ -29,12 +29,12 @@ const coreModules = [
   {
     icon: BarChart3,
     title: "Financial Management",
-    description: "Complete financial control with cashbook, fund requisition system, expense tracking, income management, and detailed financial reports by department and project."
+    description: "Complete financial control with cashbook, fund requisition system, expense tracking, and detailed financial reports by department and project."
   },
   {
     icon: CheckSquare,
     title: "Task & Project Tracking",
-    description: "Powerful issue tracking system with milestones, priorities, assignments, sub-tasks, and real-time collaboration. Track progress from inception to completion.",
+    description: "Structured issue tracking system with milestones, priorities, assignments, sub-tasks, and real-time collaboration. Track progress from inception to completion.",
     featured: true
   },
   {
@@ -47,14 +47,10 @@ const coreModules = [
     title: "Performance Management",
     description: "Comprehensive KPI tracking, competency assessments, 360-degree feedback, performance scoring, and automated performance reviews."
   },
-  {
-    icon: GraduationCap,
-    title: "Training & Development",
-    description: "Create and assign training courses, track progress, conduct assessments, issue certificates, and build a culture of continuous learning."
-  },
+  
   {
     icon: RefreshCw,
-    title: "RDC (Recurring Daily Checks)",
+    title: "RDC (Recurring Discipline & Compliance)",
     description: "Automate recurring tasks with smart rotation, verification workflows, escalation management, and compliance tracking."
   }
 ];
@@ -63,7 +59,7 @@ const advancedFeatures = [
   {
     icon: Bell,
     title: "Multi-Channel Notifications",
-    description: "Stay connected with email, SMS, Telegram bot, and push notifications. Never miss important updates."
+    description: "Stay connected with email, and push notifications. Never miss important updates."
   },
   {
     icon: FileText,
@@ -73,38 +69,30 @@ const advancedFeatures = [
   {
     icon: Award,
     title: "Recognition & Rewards",
-    description: "Employee awards, champion badges, performance recognition, and automated certificate generation."
+    description: "Employee awards, champion badges, performance recognition, and certificate management."
   },
   {
     icon: ClipboardList,
     title: "Work Summary System",
     description: "Daily work tracking with task completion logs, team mentions, and productivity analytics."
   },
-  {
-    icon: Briefcase,
-    title: "Promotion Management",
-    description: "Structured promotion workflow with eligibility checking and multi-level approvals."
-  },
+
   {
     icon: AlertTriangle,
     title: "Disciplinary Management",
-    description: "Warning system, penalty tracking, blacklist management, and compliance monitoring."
+    description: "Warning system, penalty tracking, and compliance monitoring."
   },
   {
     icon: LogOut,
     title: "Separation Management",
-    description: "Streamlined exit process with separation requests, approval workflows, and exit interviews."
+    description: "Streamlined exit process with separation requests and approval workflows."
   },
   {
     icon: Package,
     title: "Shipment Tracking",
     description: "Track shipments, update statuses, monitor completion rates, and maintain activity logs."
   },
-  {
-    icon: Server,
-    title: "Server Request Management",
-    description: "Secure server access request system with approval workflows and encrypted credentials."
-  },
+
   {
     icon: Users2,
     title: "Team Collaboration",
@@ -191,18 +179,10 @@ const Solution = () => {
     <div className="min-h-screen bg-background">
       <Header />
       
-      <main className="pt-24 pb-16">
+      <main className="pt-16 pb-16">
         {/* Hero Section */}
-        <section className="section-padding bg-gradient-to-b from-primary/5 to-background">
+        <section className="section-padding pt-10 bg-gradient-to-b from-primary/5 to-background">
           <div className="container-calm">
-            <Link 
-              to="/" 
-              className="inline-flex items-center gap-2 text-muted-foreground hover:text-foreground transition-colors mb-8"
-            >
-              <ArrowLeft className="w-4 h-4" />
-              Back to Home
-            </Link>
-            
             <motion.div
               initial={{ opacity: 0, y: 20 }}
               animate={{ opacity: 1, y: 0 }}
@@ -222,13 +202,17 @@ const Solution = () => {
                 EMP changes the system people work in.
               </p>
               <div className="flex flex-col sm:flex-row items-center justify-center gap-4">
-                <Button variant="hero" size="xl" className="gap-2">
-                  <Play className="w-4 h-4" />
-                  Try The Demo
+                <Button variant="hero" size="xl" className="gap-2" asChild>
+                  <a href="https://demo-emp.sohub.com.bd/" target="_blank" rel="noopener noreferrer">
+                    <Play className="w-4 h-4" />
+                    Try The Demo
+                  </a>
                 </Button>
-                <Button variant="heroOutline" size="xl" className="gap-2">
-                  <Github className="w-4 h-4" />
-                  View Open Source
+                <Button variant="heroOutline" size="xl" className="gap-2" asChild>
+                  <a href="https://github.com/Employee-Max-Portal/emp-open-source" target="_blank" rel="noopener noreferrer">
+                    <Github className="w-4 h-4" />
+                    View Open Source
+                  </a>
                 </Button>
               </div>
             </motion.div>
@@ -301,7 +285,7 @@ const Solution = () => {
               </p>
             </motion.div>
 
-            <div className="grid md:grid-cols-2 lg:grid-cols-5 gap-4">
+            <div className="grid md:grid-cols-2 lg:grid-cols-4 gap-4">
               {advancedFeatures.map((feature, index) => (
                 <motion.div
                   key={index}
@@ -516,13 +500,17 @@ const Solution = () => {
                 Together, we can build better systems for Bangladeshi businesses.
               </p>
               <div className="flex flex-col sm:flex-row items-center justify-center gap-4 mb-8">
-                <Button variant="hero" size="xl" className="gap-2">
-                  <Play className="w-4 h-4" />
-                  Try The Demo
+                <Button variant="hero" size="xl" className="gap-2" asChild>
+                  <a href="https://demo-emp.sohub.com.bd/" target="_blank" rel="noopener noreferrer">
+                    <Play className="w-4 h-4" />
+                    Try The Demo
+                  </a>
                 </Button>
-                <Button variant="heroOutline" size="xl" className="gap-2">
-                  <Github className="w-4 h-4" />
-                  View Open Source
+                <Button variant="heroOutline" size="xl" className="gap-2" asChild>
+                  <a href="https://github.com/Employee-Max-Portal/emp-open-source" target="_blank" rel="noopener noreferrer">
+                    <Github className="w-4 h-4" />
+                    View Open Source
+                  </a>
                 </Button>
               </div>
               

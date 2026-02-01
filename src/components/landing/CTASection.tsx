@@ -14,13 +14,17 @@ const CTASection = () => {
           </p>
           
           <div className="flex flex-col sm:flex-row items-center justify-center gap-4">
-            <Button variant="hero" size="xl" className="gap-2 min-w-[180px]">
-              <Play className="w-4 h-4" />
-              Try the Demo
+            <Button variant="hero" size="xl" className="gap-2 min-w-[180px]" asChild>
+              <a href="https://demo-emp.sohub.com.bd/" target="_blank" rel="noopener noreferrer">
+                <Play className="w-4 h-4" />
+                Try the Demo
+              </a>
             </Button>
-            <Button variant="heroOutline" size="xl" className="gap-2 min-w-[180px]">
-              <Github className="w-4 h-4" />
-              Explore Open Source
+            <Button variant="heroOutline" size="xl" className="gap-2 min-w-[180px]" asChild>
+              <a href="https://github.com/Employee-Max-Portal/emp-open-source" target="_blank" rel="noopener noreferrer">
+                <Github className="w-4 h-4" />
+                Explore Open Source
+              </a>
             </Button>
           </div>
         </div>
