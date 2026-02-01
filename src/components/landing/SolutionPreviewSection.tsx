@@ -29,7 +29,7 @@ const SolutionPreviewSection = () => {
             SOHUB Employee Management System
           </h2>
           <p className="text-lg text-muted-foreground max-w-2xl mx-auto">
-            A complete enterprise HR & workforce management solution designed to transform how your organization operates.
+            EMP (Employee Max Portal) is a Business Operating System that transfers operational responsibility from people to systems—driving clarity, accountability, and scalable execution across teams.
           </p>
         </motion.div>
 
