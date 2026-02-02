@@ -66,7 +66,7 @@ const Header = () => {
         isScrolled ? 'max-h-0 opacity-0' : 'max-h-20 opacity-100'
       }`}>
         <div className="container-calm py-2">
-          <a href="https://sohub.com.bd/" target="_blank" rel="noopener noreferrer" className="flex items-center gap-2 ml-8">
+          <a href="https://sohub.com.bd/" target="_blank" rel="noopener noreferrer" className="flex items-center justify-center gap-2">
             <img src="/ace41ae7-2ae1-4476-85cf-1d1637a02cb0.png" alt="Solution Hub" className="h-6" />
             <p className="text-[10px] md:text-xs text-muted-foreground">
               Solution Hub Technologies(SOHUB) Owned & Operated
