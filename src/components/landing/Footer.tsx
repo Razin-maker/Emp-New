@@ -14,7 +14,7 @@ const Footer = () => {
           {/* Brand */}
           <div className="text-center md:text-left">
             <div className="flex items-center justify-center md:justify-start gap-2 mb-1">
-              <img src="/Untitled design (8).png" alt="EMP Logo" className="h-24" />
+              <img src="/EMP Logo Transparent.png" alt="EMP Logo" className="h-12" />
             </div>
             <p className="text-sm text-muted-foreground">
               Employee Max Portal

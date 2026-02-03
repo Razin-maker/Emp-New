@@ -79,8 +79,8 @@ const Header = () => {
       <header className="bg-background/80 backdrop-blur-md border-b border-border/50">
       <div className="container-calm flex items-center justify-between h-12">
         {/* Logo - clickable to home */}
-        <Link to="/" className="flex items-center gap-2 relative top-1.5">
-          <img src="/Untitled design (8).png" alt="EMP Logo" className="h-24" />
+        <Link to="/" className="flex items-center gap-2 relative -top-1">
+          <img src="/EMP Logo Transparent.png" alt="EMP Logo" className="h-10" />
         </Link>
         
         {/* Desktop Navigation */}
