@@ -11,6 +11,7 @@ import OpenSourceSection from "@/components/landing/OpenSourceSection";
 import FutureSection from "@/components/landing/FutureSection";
 import PhilosophySection from "@/components/landing/PhilosophySection";
 import CTASection from "@/components/landing/CTASection";
+import FAQSection from "@/components/landing/FAQSection";
 import Footer from "@/components/landing/Footer";
 
 const Index = () => {
@@ -30,6 +31,7 @@ const Index = () => {
         <FutureSection />
         <PhilosophySection />
         <CTASection />
+        <FAQSection />
       </main>
       <Footer />
     </div>
