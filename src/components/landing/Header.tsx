@@ -1,15 +1,33 @@
-import { useState } from "react";
+import { useState, useEffect } from "react";
 import { Link, useLocation, useNavigate } from "react-router-dom";
 import { Button } from "@/components/ui/button";
+import { DropdownMenu, DropdownMenuContent, DropdownMenuItem, DropdownMenuTrigger } from "@/components/ui/dropdown-menu";
 import { Menu, X } from "lucide-react";
-import { useEffect } from "react";
+
+interface Initiative {
+  id: string;
+  name: string;
+  description: string;
+  href: string | null;
+  logo: string;
+  order: number;
+  isActive: boolean;
+}
 
 const Header = () => {
   const [mobileMenuOpen, setMobileMenuOpen] = useState(false);
   const [isScrolled, setIsScrolled] = useState(false);
   const [activeSection, setActiveSection] = useState("");
+  const [initiatives, setInitiatives] = useState<Initiative[]>([]);
   const location = useLocation();
   const navigate = useNavigate();
+
+  useEffect(() => {
+    fetch('/api/initiatives.json')
+      .then(res => res.json())
+      .then(data => setInitiatives(Array.isArray(data) ? data : data.initiatives || []))
+      .catch(() => {});
+  }, []);
 
   useEffect(() => {
     if (location.state?.scrollTo) {
@@ -65,13 +83,46 @@ const Header = () => {
       <div className={`bg-secondary/50 border-b border-border/50 transition-all duration-300 overflow-hidden ${
         isScrolled ? 'max-h-0 opacity-0' : 'max-h-20 opacity-100'
       }`}>
-        <div className="container-calm py-2">
-          <a href="https://sohub.com.bd/" target="_blank" rel="noopener noreferrer" className="flex items-center justify-center gap-2">
-            <img src="/ace41ae7-2ae1-4476-85cf-1d1637a02cb0.png" alt="Solution Hub" className="h-6" />
-            <p className="text-[10px] md:text-xs text-muted-foreground">
-              Solution Hub Technologies(SOHUB) Owned & Operated
-            </p>
-          </a>
+        <div className="container-calm py-0.5">
+          <div className="flex items-center justify-between">
+            <a href="https://sohub.com.bd/" target="_blank" rel="noopener noreferrer" className="flex items-center gap-2">
+              <img src="/ace41ae7-2ae1-4476-85cf-1d1637a02cb0.png" alt="Solution Hub" className="h-6" />
+              <p className="text-[10px] md:text-xs text-muted-foreground">
+                Solution Hub Technologies(SOHUB) Owned & Operated
+              </p>
+            </a>
+            <DropdownMenu>
+              <DropdownMenuTrigger asChild>
+                <Button variant="ghost" size="sm" className="text-xs">
+                  Initiatives
+                </Button>
+              </DropdownMenuTrigger>
+              <DropdownMenuContent align="end" className="w-[320px] p-3">
+                <div className="grid grid-cols-3 gap-3">
+                  {initiatives.map((initiative) => (
+                    initiative.href ? (
+                      <a
+                        key={initiative.id}
+                        href={initiative.href}
+                        target="_blank"
+                        rel="noopener noreferrer"
+                        className="flex items-center justify-center p-4 rounded-lg border border-border hover:border-primary/30 hover:bg-secondary/50 transition-all cursor-pointer"
+                      >
+                        <img src={initiative.logo} alt={initiative.name} className="w-full h-full object-contain" />
+                      </a>
+                    ) : (
+                      <div
+                        key={initiative.id}
+                        className="flex items-center justify-center p-4 rounded-lg border border-border opacity-50 cursor-not-allowed"
+                      >
+                        <img src={initiative.logo} alt={initiative.name} className="w-full h-full object-contain" />
+                      </div>
+                    )
+                  ))}
+                </div>
+              </DropdownMenuContent>
+            </DropdownMenu>
+          </div>
         </div>
       </div>
       
