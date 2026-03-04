@@ -2,7 +2,7 @@ import { useState, useEffect } from "react";
 import { Link, useLocation, useNavigate } from "react-router-dom";
 import { Button } from "@/components/ui/button";
 import { DropdownMenu, DropdownMenuContent, DropdownMenuItem, DropdownMenuTrigger } from "@/components/ui/dropdown-menu";
-import { Menu, X } from "lucide-react";
+import { Menu, X, ChevronDown, ChevronUp } from "lucide-react";
 
 interface Initiative {
   id: string;
@@ -19,6 +19,7 @@ const Header = () => {
   const [isScrolled, setIsScrolled] = useState(false);
   const [activeSection, setActiveSection] = useState("");
   const [initiatives, setInitiatives] = useState<Initiative[]>([]);
+  const [initiativesOpen, setInitiativesOpen] = useState(false);
   const location = useLocation();
   const navigate = useNavigate();
 
@@ -93,13 +94,16 @@ const Header = () => {
             <a href="https://sohub.com.bd/" target="_blank" rel="noopener noreferrer" className="flex items-center gap-2">
               <img src="/ace41ae7-2ae1-4476-85cf-1d1637a02cb0.png" alt="Solution Hub" className="h-6" />
               <p className="text-[10px] md:text-xs text-muted-foreground">
-                Solution Hub Technologies(SOHUB) Owned & Operated
+                <span className="hidden md:inline">Solution Hub Technologies(SOHUB) Owned & Operated</span>
+                <span className="md:hidden">SOHUB owned & operated</span>
               </p>
             </a>
-            <DropdownMenu>
+            <DropdownMenu onOpenChange={setInitiativesOpen}>
               <DropdownMenuTrigger asChild>
-                <Button variant="ghost" size="sm" className="text-xs hover:bg-transparent hover:text-foreground focus-visible:ring-0 focus-visible:ring-offset-0">
-                  Initiatives
+                <Button variant="ghost" size="sm" className="text-xs hover:bg-transparent hover:text-foreground focus-visible:ring-0 focus-visible:ring-offset-0 text-muted-foreground gap-1 md:mr-0 -mr-4">
+                  <span className="hidden md:inline">Initiatives</span>
+                  <span className="md:hidden">Our Initiatives</span>
+                  {initiativesOpen ? <ChevronUp className="w-3 h-3" /> : <ChevronDown className="w-3 h-3" />}
                 </Button>
               </DropdownMenuTrigger>
               <DropdownMenuContent align="end" className="w-[320px] p-3">
