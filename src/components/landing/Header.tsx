@@ -21,9 +21,16 @@ const Header = () => {
   const [initiatives, setInitiatives] = useState<Initiative[]>([]);
   const location = useLocation();
   const navigate = useNavigate();
+  const currentSite = window.location.hostname;
+  const isEMP = currentSite.includes('emp') || currentSite.includes('employee');
 
   useEffect(() => {
-    fetch('/api/initiatives.json')
+    fetch('https://sohub.netlify.app/api/initiatives.json', {
+      mode: 'cors',
+      headers: {
+        'Accept': 'application/json'
+      }
+    })
       .then(res => res.json())
       .then(data => setInitiatives(Array.isArray(data) ? data : data.initiatives || []))
       .catch(() => {});
@@ -99,14 +106,19 @@ const Header = () => {
               </DropdownMenuTrigger>
               <DropdownMenuContent align="end" className="w-[320px] p-3">
                 <div className="grid grid-cols-3 gap-3">
-                  {initiatives.map((initiative) => (
-                    initiative.href ? (
+                  {initiatives.map((initiative) => {
+                    const isCurrentSite = isEMP && (initiative.name.toLowerCase().includes('emp') || initiative.name.toLowerCase().includes('employee'));
+                    return initiative.href ? (
                       <a
                         key={initiative.id}
                         href={initiative.href}
                         target="_blank"
                         rel="noopener noreferrer"
-                        className="flex items-center justify-center p-4 rounded-lg border border-border hover:border-primary/30 hover:bg-secondary/50 transition-all cursor-pointer"
+                        className={`flex items-center justify-center p-4 rounded-lg border transition-all cursor-pointer ${
+                          isCurrentSite 
+                            ? 'border-primary bg-primary/10 ring-2 ring-primary/30' 
+                            : 'border-border hover:border-primary/30 hover:bg-secondary/50'
+                        }`}
                       >
                         <img src={initiative.logo} alt={initiative.name} className="w-full h-full object-contain" />
                       </a>
@@ -117,8 +129,8 @@ const Header = () => {
                       >
                         <img src={initiative.logo} alt={initiative.name} className="w-full h-full object-contain" />
                       </div>
-                    )
-                  ))}
+                    );
+                  })}
                 </div>
               </DropdownMenuContent>
             </DropdownMenu>
