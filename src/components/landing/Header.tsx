@@ -101,8 +101,7 @@ const Header = () => {
             <DropdownMenu onOpenChange={setInitiativesOpen}>
               <DropdownMenuTrigger asChild>
                 <Button variant="ghost" size="sm" className="text-xs hover:bg-transparent hover:text-foreground focus-visible:ring-0 focus-visible:ring-offset-0 text-muted-foreground gap-1 md:mr-0 -mr-4">
-                  <span className="hidden md:inline">Initiatives</span>
-                  <span className="md:hidden">Our Initiatives</span>
+                  Our Initiatives
                   {initiativesOpen ? <ChevronUp className="w-3 h-3" /> : <ChevronDown className="w-3 h-3" />}
                 </Button>
               </DropdownMenuTrigger>
