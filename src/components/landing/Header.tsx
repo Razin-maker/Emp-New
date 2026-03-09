@@ -24,7 +24,7 @@ const Header = () => {
   const navigate = useNavigate();
 
   useEffect(() => {
-    fetch('https://sohub.netlify.app/api/initiatives.json', {
+    fetch('https://sohub.com.bd/api/initiatives.json', {
       mode: 'cors',
       headers: {
         'Accept': 'application/json'
@@ -32,7 +32,7 @@ const Header = () => {
     })
       .then(res => res.json())
       .then(data => setInitiatives(Array.isArray(data) ? data : data.initiatives || []))
-      .catch(() => {});
+      .catch(err => console.error('Initiatives Error:', err));
   }, []);
 
   useEffect(() => {
@@ -123,14 +123,14 @@ const Header = () => {
                             : 'border-border'
                         }`}
                       >
-                        <img src={`https://sohub.netlify.app${initiative.logo}`} alt={initiative.name} className="w-full h-full object-contain" />
+                        <img src={`https://sohub.com.bd${initiative.logo}`} alt={initiative.name} className="w-full h-full object-contain" />
                       </a>
                     ) : (
                       <div
                         key={initiative.id}
                         className="flex items-center justify-center p-4 rounded-lg border border-border opacity-50 cursor-not-allowed"
                       >
-                        <img src={`https://sohub.netlify.app${initiative.logo}`} alt={initiative.name} className="w-full h-full object-contain" />
+                        <img src={`https://sohub.com.bd${initiative.logo}`} alt={initiative.name} className="w-full h-full object-contain" />
                       </div>
                     );
                   })}
