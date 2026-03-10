@@ -12,6 +12,7 @@ import FutureSection from "@/components/landing/FutureSection";
 import PhilosophySection from "@/components/landing/PhilosophySection";
 import CTASection from "@/components/landing/CTASection";
 import FAQSection from "@/components/landing/FAQSection";
+import OurInitiatives from "@/components/landing/OurInitiatives";
 import Footer from "@/components/landing/Footer";
 
 const Index = () => {
@@ -32,6 +33,7 @@ const Index = () => {
         <PhilosophySection />
         <CTASection />
         <FAQSection />
+        <OurInitiatives />
       </main>
       <Footer />
     </div>
